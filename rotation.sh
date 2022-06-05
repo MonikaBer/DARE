@@ -4,6 +4,7 @@ declare -a id_configuration
 declare -a ports=("81" "82" "83" "84")
 loop_index=0
 select_at_random=$1
+previous_port="80"
 
 function randomized_sleep() {
 	rotation_time_sec=$(shuf -i 1-5 -n 1) # default  15-60
@@ -12,21 +13,19 @@ function randomized_sleep() {
 }
 
 function create_configuration(){
-	sudo nft add table inet dare
-	sudo nft -- add chain inet dare prerouting { type nat hook prerouting priority -100 \; } 
-	sudo nft add rule inet dare prerouting tcp dport 80 counter redirect to :81
-	#sudo nft replace rule inet dare prerouting handle 4 tcp 
-	#sudo nft add set inet dare dare_port_set { type mark \; }
+    sudo nft -f ./config/nft.conf
+	sudo nft list -a ruleset
 }
 
 function reset_configuration(){
-	sudo nft delete table inet dare
+	sudo nft delete table nat
 }
 
 function update_configuration(){
 	set_to_port="$1"
-	printf "Redirect tcp 80 to new port %d\n" "$set_to_port"
-	sudo nft replace rule inet dare prerouting handle 2 tcp dport 80 counter redirect to :"$set_to_port"
+	printf "Redirect tcp 80 from port %d to new port %d\n" "$previous_port" "$set_to_port"
+	sudo nft replace rule nat prerouting handle 4 tcp dport 80 counter redirect to :"$set_to_port"
+    sudo nft replace rule nat OUTPUT handle 5 tcp dport 80 counter redirect to :"$set_to_port"
 }
 
 function choose_port() {
@@ -58,9 +57,10 @@ function service_loop(){
 	while [ 1 ]
 	do
 		choose_port
-		local new_port="$?"
-		printf "New port: %s\n" "$new_port"
-		update_configuration "$new_port"
+		let current_port="$?"
+		printf "New port: %s\n" "$current_port"
+		update_configuration "$current_port"
+        previous_port="$current_port"
 		randomized_sleep 
 	done
 }

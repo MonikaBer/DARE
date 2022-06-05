@@ -1,7 +1,7 @@
 #!/bin/bash
 
 declare -a id_configuration
-declare -a ports=("81" "82" "83" "84")
+declare -a ports=("81" "82")
 loop_index=0
 select_at_random=$1
 previous_port="80"

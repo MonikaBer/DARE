@@ -13,12 +13,15 @@ function randomized_sleep() {
 }
 
 function create_configuration(){
-    sudo nft -f ./config/nft.conf
+	sudo nft flush ruleset
+    	sudo nft -f ./config/nft.conf
 	sudo nft list -a ruleset
 }
 
 function reset_configuration(){
-	sudo nft delete table nat
+	sudo nft flush ruleset
+	sudo nft -f /etc/nftables.conf
+	#sudo nft delete table nat
 }
 
 function update_configuration(){

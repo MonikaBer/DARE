@@ -31,6 +31,13 @@ Enable ip / port forwarding:
 Apache server setup:
 * https://www.digitalocean.com/community/tutorials/apache-basics-installation-and-configuration-troubleshooting
 * https://www.guru99.com/apache.html
+* https://serverfault.com/questions/1077204/nftables-loopback-connections-not-working-in-centos-7
 
 VM port forwarding
 * https://www.howtogeek.com/122641/how-to-forward-ports-to-a-virtual-machine-and-use-it-as-a-server/
+
+Prerouting and postrouting:
+* https://unix.stackexchange.com/questions/457375/local-port-forwarding-using-iptables-is-not-working
+
+Nginx
+* https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04

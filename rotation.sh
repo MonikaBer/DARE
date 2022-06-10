@@ -28,7 +28,10 @@ function update_configuration(){
 	set_to_port="$1"
 	printf "Redirect tcp 80 from port %d to new port %d\n" "$previous_port" "$set_to_port"
 	sudo nft replace rule nat prerouting handle 4 tcp dport 80 counter redirect to :"$set_to_port"
-    sudo nft replace rule nat OUTPUT handle 5 tcp dport 80 counter redirect to :"$set_to_port"
+    sudo nft replace rule nat OUTPUT handle 6 tcp dport 80 counter redirect to :"$set_to_port"
+
+    sudo nft replace rule nat prerouting handle 5 tcp dport 8080 counter redirect to :"$set_to_port"
+    sudo nft replace rule nat OUTPUT handle 7 tcp dport 8080 counter redirect to :"$set_to_port"
 }
 
 function choose_port() {

@@ -25,7 +25,7 @@ def main():
             elapsed_time = time.time() - start_time
 
             f.write(f'{elapsed_time}\n')
-            print(f'{i}/{args.requests_count}')
+            print(f'{i+1}/{args.requests_count}')
 
 
 if __name__ == "__main__":

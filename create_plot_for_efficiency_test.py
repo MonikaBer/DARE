@@ -21,7 +21,7 @@ def main():
     df['elapsed_time'] = pd.read_csv(args.results_path, header = None)
     y = df['elapsed_time'].to_numpy()
 
-    x = np.arange(1, 101, 1)
+    x = np.arange(1, len(y)+1, 1)
 
     plt.xlabel("zapytania GET")
     plt.ylabel("czas [s]")

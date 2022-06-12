@@ -35,9 +35,24 @@ Apache server setup:
 
 VM port forwarding
 * https://www.howtogeek.com/122641/how-to-forward-ports-to-a-virtual-machine-and-use-it-as-a-server/
+* https://stackoverflow.com/questions/9537751/virtualbox-port-forward-from-guest-to-host
 
 Prerouting and postrouting:
 * https://unix.stackexchange.com/questions/457375/local-port-forwarding-using-iptables-is-not-working
 
 Nginx
 * https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+
+Wordpress
+* https://www.tecmint.com/install-wordpress-with-nginx-in-ubuntu-20-04/
+
+Change wordpress siteurl from mysql:
+* a
+* use mysite;
+* select * from wp_options where option_name like 'siteurl';
+* select * from wp_options where option_name like 'home';
+* change value if you wish
+
+
+Change ports for servers:
+* https://www.linuxshelltips.com/change-wordpress-port-apache-nginx/

@@ -56,3 +56,10 @@ Change wordpress siteurl from mysql:
 
 Change ports for servers:
 * https://www.linuxshelltips.com/change-wordpress-port-apache-nginx/
+
+
+
+### Efficiency tests:
+```
+python single_client_efficiency_test.py --url http://localhost:8080 --requests-count 5000 --results-path single_client_eff_test_1.csv
+```

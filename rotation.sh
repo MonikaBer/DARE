@@ -7,7 +7,7 @@ select_at_random=$1
 previous_port="80"
 
 function randomized_sleep() {
-	rotation_time_sec=$(shuf -i 1-5 -n 1) # default  15-60
+	rotation_time_sec=$(shuf -i 10-15 -n 1) # default  15-60
 	printf "Sleep %d seconds\n" "$rotation_time_sec"
 	sleep "$rotation_time_sec"
 }

@@ -9,6 +9,8 @@ def create_parser():
                         help = "path to results (default: %(default)s)")
     parser.add_argument("--plot-path", type = str, default = "plots/plot.png",
                         help = "path to plot (default: %(default)s)")
+    parser.add_argument("--plot-title", type = str, default = "Apache",
+                        help = "Apache / Nginx / MTD (default: %(default)s)")
     return parser
 
 
@@ -23,7 +25,7 @@ def main():
 
     plt.xlabel("zapytania GET")
     plt.ylabel("czas [s]")
-    plt.title("Zależność czasu odpowiedzi od numeru zapytania")
+    plt.title(f"Zależność czasu odpowiedzi od numeru zapytania dla {args.plot_title}")
 
     plt.plot(x, y)
     plt.savefig(args.plot_path)

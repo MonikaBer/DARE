@@ -67,5 +67,5 @@ python single_client_efficiency_test.py --url "http://localhost:8080" --requests
 
 Plot results:
 ```
-python create_plot_for_efficiency_test.py --results-path "single_client_eff_results_1.csv" --plot-path "plots/single_client_eff_plot_1.png"
+python create_plot_for_efficiency_test.py --results-path "single_client_eff_results_1.csv" --plot-path "plots/single_client_eff_plot_1.png" --plot-title "Apache"
 ```

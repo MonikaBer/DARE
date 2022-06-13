@@ -4,7 +4,7 @@ from argparse import ArgumentParser
 
 def create_parser():
     parser = ArgumentParser()
-    parser.add_argument("--results-path", type = str, default = "results.csv",
+    parser.add_argument("--results-path", type = str, default = "result/plain_html/single_client_eff_rotation_test_1.csv",
                         help = "path to results (default: %(default)s)")
     return parser
 
@@ -16,8 +16,11 @@ def main():
     df['elapsed_time'] = pd.read_csv(args.results_path)
     y = df['elapsed_time'].to_numpy()
 
-    m = np.mean(y)
-    print(m)
+    mean_time = np.mean(y)
+    print(f"mean elapsed time: {mean_time}")
+
+    max_time = np.max(y)
+    print(f"max elapsed time: {max_time}")
 
 if __name__ == "__main__":
     exit(main())

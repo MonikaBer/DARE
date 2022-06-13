@@ -1,9 +1,10 @@
 # DARE
 Dynamic Application Rotation Environment for Moving Target Defense (MTD)
 
-## Documentation
-[comments](https://demo.hedgedoc.org/WgeztfZzSk27-Uic5WKIQQ?both)
+# Requirements
+- Python v3.10
 
+## Documentation
 [article](https://www.overleaf.com/project/6290ef1fb8b577a786ca5821)
 
 Django REST API documentation:
@@ -70,7 +71,12 @@ Plot results:
 python create_plot_for_efficiency_test.py --results-path "single_client_eff_results_1.csv" --plot-path "plots/single_client_eff_plot_1.png" --plot-title "Apache"
 ```
 
-Calculate mean time of HTTP response:
+Calculate mean and max time of HTTP response:
 ```
 python get_mean_elapsed_time.py --results-path result/plain_html/single_client_eff_rotation_test_1.csv
+```
+
+Calculate mean and max time of HTTP response for more clients:
+```
+python get_mean_elapsed_time_for_more_clients.py --results-path result/multi_mtd_5000
 ```

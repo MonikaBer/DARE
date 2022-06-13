@@ -69,3 +69,8 @@ Plot results:
 ```
 python create_plot_for_efficiency_test.py --results-path "single_client_eff_results_1.csv" --plot-path "plots/single_client_eff_plot_1.png" --plot-title "Apache"
 ```
+
+Calculate mean time of HTTP response:
+```
+python get_mean_elapsed_time.py --results-path result/plain_html/single_client_eff_rotation_test_1.csv
+```
